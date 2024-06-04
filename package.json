@@ -20,14 +20,14 @@
     "lint:fix": "eslint --fix --ext .ts,.tsx src"
   },
   "dependencies": {
-    "@payloadcms/bundler-webpack": "latest",
-    "@payloadcms/db-mongodb": "latest",
-    "@payloadcms/richtext-slate": "latest",
+    "@payloadcms/bundler-webpack": "^1.0.7",
+    "@payloadcms/db-mongodb": "^1.5.1",
+    "@payloadcms/richtext-slate": "^1.5.2",
     "dotenv": "^8.2.0",
     "escape-html": "^1.0.3",
     "express": "^4.19.2",
     "next": "^13.4.8",
-    "payload": "latest",
+    "payload": "^2.19.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
