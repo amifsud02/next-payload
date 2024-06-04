@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 
-import './app.scss'
+import '../app.scss'
 
 import classes from './layout.module.scss'
 
