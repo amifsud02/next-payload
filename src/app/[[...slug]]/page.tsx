@@ -32,6 +32,19 @@ const SinglePage = async ({ params: { slug } }: { params: { slug: string | strin
           <div className={classes.body}>
             <RichText content={page.richText} />
           </div>
+          <div>
+            <picture>
+              <source
+                media="(prefers-color-scheme: dark)"
+                srcSet={page.thumbnail?.url}
+              />
+              <img
+                className={classes.logo}
+                alt="Payload Logo"
+                src={page.thumbnail?.url}
+              />
+            </picture>
+          </div>
         </Gutter>
       </main>
     </Fragment>

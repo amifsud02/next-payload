@@ -23,6 +23,12 @@ export const Pages: CollectionConfig = {
       label: 'Content',
     },
     {
+      name: 'thumbnail',
+      label: 'Thumbnail`',
+      type: 'upload',
+      relationTo: 'media',
+    },
+    {
       name: 'slug',
       label: 'Slug',
       type: 'text',
