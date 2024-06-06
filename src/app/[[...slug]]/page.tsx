@@ -22,6 +22,8 @@ const SinglePage = async ({ params: { slug } }: { params: { slug: string | strin
   })
 
   const page = docs?.[0] as Page
+  
+  const thumbnailUrl = typeof page.thumbnail === 'string' ? page.thumbnail : page.thumbnail?.url;
 
   if (!page) return notFound()
 
@@ -36,12 +38,12 @@ const SinglePage = async ({ params: { slug } }: { params: { slug: string | strin
             <picture>
               <source
                 media="(prefers-color-scheme: dark)"
-                srcSet={page.thumbnail?.url}
+                srcSet={thumbnailUrl}
               />
               <img
                 className={classes.logo}
                 alt="Payload Logo"
-                src={page.thumbnail?.url}
+                src={thumbnailUrl}
               />
             </picture>
           </div>
