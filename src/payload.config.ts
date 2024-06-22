@@ -21,18 +21,20 @@ import { Icon } from "./graphics/Icon";
 import { MainMenu } from "./globals/MainMenu";
 import { GeneralSettings } from "./globals/GeneralSettings";
 import { Footer } from "./globals/Footer";
+import { Posts } from "./collections/Posts";
 
 export default buildConfig({
   serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL || '',
   collections: [
     Users,
     Pages, 
-    Media
+    Posts,
+    Media,
   ],
   globals: [
+    MainMenu,
     Footer,
     GeneralSettings,
-    MainMenu
   ],
   admin: {
     bundler: webpackBundler(),

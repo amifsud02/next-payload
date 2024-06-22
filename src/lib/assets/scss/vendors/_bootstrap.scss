@@ -1,0 +1,15 @@
+// Import Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+// Override Boostrap
+@import '../abstracts/overrides';
+@import '../abstracts/functions';
+@import '../abstracts/mixins';
+@import '../abstracts/variables';
+
+@import '../base/typography';
+@import '../layout/grid';
+@import '../layout/header';
+@import '../layout/footer';
+
+// Import custom SCSS files

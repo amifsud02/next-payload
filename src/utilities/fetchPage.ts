@@ -12,6 +12,6 @@ export const fetchPage = async (slug: string): Promise<Page | null> => {
             }
         }
     })
-    
+
     return page.docs[0];
 }

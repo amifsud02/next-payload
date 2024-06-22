@@ -5,9 +5,7 @@ import { Metadata } from 'next'
 import { Page } from '../../payload-types'
 
 import { getPayloadClient } from '../../getPayload'
-import { Gutter } from '../_components/Gutter'
-import { RichText } from '../_components/RichText'
-import classes from './page.module.scss'
+import Button from 'react-bootstrap/Button';
 
 const SinglePage = async ({ params: { slug } }: { params: { slug: string | string[] } }) => {
   const payload = await getPayloadClient()
@@ -22,32 +20,28 @@ const SinglePage = async ({ params: { slug } }: { params: { slug: string | strin
   })
 
   const page = docs?.[0] as Page;
-
+  console.log(page);
   if (!page) return notFound();
 
   const thumbnailUrl = typeof page.thumbnail === 'string' ? page.thumbnail : page.thumbnail?.url;
 
   return (
     <Fragment>
-      <main className={classes.main}>
-        <Gutter>
-          <div className={classes.body}>
-            <RichText content={page.richText} />
+      <main className="wrapper">
+        <section>
+          <div className="container" style={{ background: "red" }}>
+            <div className="row">
+              <div className="col-6" style={{ background: "blue" }}>
+                <h1> Lorem Ipsum dolor sit amet</h1>
+                <p>Welcome to NEXUS! We’re all about turning your big ideas into reality. Think of us as the bridge between your vision and success. With creative strategies and fresh solutions, we help brands come to life and grow in the digital world. Let’s connect and make amazing things happen together.</p>
+                <Button href='/contact-us'>Contact Us</Button>
+              </div>
+              <div className="col-6" style={{ background: "blue" }}>
+                <img src="" alt="" />
+              </div>
+            </div>
           </div>
-          <div>
-            <picture>
-              <source
-                media="(prefers-color-scheme: dark)"
-                srcSet={thumbnailUrl}
-              />
-              <img
-                className={classes.logo}
-                alt="Payload Logo"
-                src={thumbnailUrl}
-              />
-            </picture>
-          </div>
-        </Gutter>
+        </section>
       </main>
     </Fragment>
   )

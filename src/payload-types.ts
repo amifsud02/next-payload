@@ -10,14 +10,15 @@ export interface Config {
   collections: {
     users: User;
     pages: Page;
+    posts: Post;
     media: Media;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
   };
   globals: {
+    'main-menu': MainMenu;
     footer: Footer;
     'general-settings': GeneralSetting;
-    'main-menu': MainMenu;
   };
 }
 /**
@@ -77,6 +78,27 @@ export interface Media {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "posts".
+ */
+export interface Post {
+  id: string;
+  title: string;
+  image: string | Media;
+  richText?:
+    | {
+        [k: string]: unknown;
+      }[]
+    | null;
+  relatedPosts?: (string | Post)[] | null;
+  slug?: string | null;
+  authors: (string | User)[];
+  publishedOn: string;
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-preferences".
  */
 export interface PayloadPreference {
@@ -111,6 +133,21 @@ export interface PayloadMigration {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "main-menu".
+ */
+export interface MainMenu {
+  id: string;
+  columns?:
+    | {
+        label: string;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "footer".
  */
 export interface Footer {
@@ -129,21 +166,6 @@ export interface Footer {
  * via the `definition` "general-settings".
  */
 export interface GeneralSetting {
-  id: string;
-  columns?:
-    | {
-        label: string;
-        id?: string | null;
-      }[]
-    | null;
-  updatedAt?: string | null;
-  createdAt?: string | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "main-menu".
- */
-export interface MainMenu {
   id: string;
   columns?:
     | {
