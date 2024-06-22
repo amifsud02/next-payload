@@ -21,11 +21,11 @@ const SinglePage = async ({ params: { slug } }: { params: { slug: string | strin
     },
   })
 
-  const page = docs?.[0] as Page
-  
-  const thumbnailUrl = typeof page.thumbnail === 'string' ? page.thumbnail : page.thumbnail?.url;
+  const page = docs?.[0] as Page;
 
-  if (!page) return notFound()
+  if (!page) return notFound();
+
+  const thumbnailUrl = typeof page.thumbnail === 'string' ? page.thumbnail : page.thumbnail?.url;
 
   return (
     <Fragment>

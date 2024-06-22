@@ -1,4 +1,4 @@
-import type { Payload } from 'payload'
+import type { Payload } from 'payload';
 
 export const seed = async (payload: Payload): Promise<void> => {
   // create admin
@@ -7,12 +7,15 @@ export const seed = async (payload: Payload): Promise<void> => {
     data: {
       email: 'demo@payloadcms.com',
       password: 'demo',
+      firstName: 'Demo',
+      lastName: 'User',
+      roles: ['admin']
     },
-  })
+  });
 
   // create home page
   await Promise.all([
-    await payload.create({
+    payload.create({
       collection: 'pages',
       data: {
         title: 'Home',
@@ -89,5 +92,5 @@ export const seed = async (payload: Payload): Promise<void> => {
         ],
       },
     }),
-  ])
-}
+  ]);
+};
